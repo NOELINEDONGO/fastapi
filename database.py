@@ -4,11 +4,15 @@ from sqlalchemy.orm import sessionmaker, Session
 from sqlalchemy.ext.declarative import declarative_base
 from fastapi import Depends
 
-SQLALCHEMY_DATA_URI = "postgresql://admin:admin@localhost:5432/DungeonsAndDragons"
+from config import settings
+
+SQLALCHEMY_DATA_URI = (
+    f"postgresql://{settings.db_user}:{settings.db_password}"
+    f"@{settings.db_host}:{settings.db_port}/{settings.db_name}"
+)
 
 # DEF ENGINE
-
-engine = create_engine(SQLALCHEMY_DATA_URI)
+engine = create_engine(SQLALCHEMY_DATA_URI, echo=False)
 
 # DEF SESSION
 SessionLocal = sessionmaker(autoflush=False, autocommit=False, bind=engine)
