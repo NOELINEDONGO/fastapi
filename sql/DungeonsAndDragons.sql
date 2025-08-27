@@ -22,7 +22,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: alembic_version; Type: TABLE; Schema: public; Owner: admin
+-- Name: alembic_version; Type: TABLE; Schema: public; Owner: nono
 --
 
 CREATE TABLE public.alembic_version (
@@ -30,10 +30,10 @@ CREATE TABLE public.alembic_version (
 );
 
 
-ALTER TABLE public.alembic_version OWNER TO admin;
+ALTER TABLE public.alembic_version OWNER TO nono;
 
 --
--- Name: heroes; Type: TABLE; Schema: public; Owner: admin
+-- Name: heroes; Type: TABLE; Schema: public; Owner: nono
 --
 
 CREATE TABLE public.heroes (
@@ -49,10 +49,10 @@ CREATE TABLE public.heroes (
 );
 
 
-ALTER TABLE public.heroes OWNER TO admin;
+ALTER TABLE public.heroes OWNER TO nono;
 
 --
--- Name: heroes_id_seq; Type: SEQUENCE; Schema: public; Owner: admin
+-- Name: heroes_id_seq; Type: SEQUENCE; Schema: public; Owner: nono
 --
 
 CREATE SEQUENCE public.heroes_id_seq
@@ -64,17 +64,17 @@ CREATE SEQUENCE public.heroes_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.heroes_id_seq OWNER TO admin;
+ALTER SEQUENCE public.heroes_id_seq OWNER TO nono;
 
 --
--- Name: heroes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: admin
+-- Name: heroes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: nono
 --
 
 ALTER SEQUENCE public.heroes_id_seq OWNED BY public.heroes.id;
 
 
 --
--- Name: players; Type: TABLE; Schema: public; Owner: admin
+-- Name: players; Type: TABLE; Schema: public; Owner: nono
 --
 
 CREATE TABLE public.players (
@@ -89,10 +89,10 @@ CREATE TABLE public.players (
 );
 
 
-ALTER TABLE public.players OWNER TO admin;
+ALTER TABLE public.players OWNER TO nono;
 
 --
--- Name: players_id_seq; Type: SEQUENCE; Schema: public; Owner: admin
+-- Name: players_id_seq; Type: SEQUENCE; Schema: public; Owner: nono
 --
 
 CREATE SEQUENCE public.players_id_seq
@@ -104,31 +104,31 @@ CREATE SEQUENCE public.players_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.players_id_seq OWNER TO admin;
+ALTER SEQUENCE public.players_id_seq OWNER TO nono;
 
 --
--- Name: players_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: admin
+-- Name: players_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: nono
 --
 
 ALTER SEQUENCE public.players_id_seq OWNED BY public.players.id;
 
 
 --
--- Name: heroes id; Type: DEFAULT; Schema: public; Owner: admin
+-- Name: heroes id; Type: DEFAULT; Schema: public; Owner: nono
 --
 
 ALTER TABLE ONLY public.heroes ALTER COLUMN id SET DEFAULT nextval('public.heroes_id_seq'::regclass);
 
 
 --
--- Name: players id; Type: DEFAULT; Schema: public; Owner: admin
+-- Name: players id; Type: DEFAULT; Schema: public; Owner: nono
 --
 
 ALTER TABLE ONLY public.players ALTER COLUMN id SET DEFAULT nextval('public.players_id_seq'::regclass);
 
 
 --
--- Data for Name: alembic_version; Type: TABLE DATA; Schema: public; Owner: admin
+-- Data for Name: alembic_version; Type: TABLE DATA; Schema: public; Owner: nono
 --
 
 COPY public.alembic_version (version_num) FROM stdin;
@@ -137,7 +137,7 @@ COPY public.alembic_version (version_num) FROM stdin;
 
 
 --
--- Data for Name: heroes; Type: TABLE DATA; Schema: public; Owner: admin
+-- Data for Name: heroes; Type: TABLE DATA; Schema: public; Owner: nono
 --
 
 COPY public.heroes (id, nick_name, full_name, occupation, powers, hobby, type, rank, owner_id) FROM stdin;
@@ -147,7 +147,7 @@ COPY public.heroes (id, nick_name, full_name, occupation, powers, hobby, type, r
 
 
 --
--- Data for Name: players; Type: TABLE DATA; Schema: public; Owner: admin
+-- Data for Name: players; Type: TABLE DATA; Schema: public; Owner: nono
 --
 
 COPY public.players (id, email, username, first_name, last_name, hashed_password, is_active, role) FROM stdin;
@@ -155,27 +155,27 @@ COPY public.players (id, email, username, first_name, last_name, hashed_password
 9	xplayer@exemple.com	champion1	NAlex	Storm	$2b$12$ynJfTw1nKD4FcgOlnsOikuf8mLx9P2GFY4d0fKTQStb3cpV2X7v4y	t	controller
 11	nono@exemple.com	nono	Alex	Storm	$2b$12$FP07dYUlEbBIqiC48rxB4.jP2G.kIRAbH5n/91NVLfQ92tLFz2ItG	t	controller
 12	nini@exemple.com	nini	Alex	Storm	$2b$12$t.Rff7NzXL9r5QS4TmxkjeZvJfgO8eXM7U3xuURaKE73.JoEn8YAC	t	controller
-13	admin@gmail.com	admin	admin	admin	$2b$12$DwrPvWVd2Y72/7RVFf72Hu6hkW8dg0uZCo21h3JX2ns05YlLYx52W	t	admin
+13	nono@gmail.com	nono	nono	nono	$2b$12$DwrPvWVd2Y72/7RVFf72Hu6hkW8dg0uZCo21h3JX2ns05YlLYx52W	t	nono
 14	Patrick@exemple.com	Patrick1	Patrick	Storm	$2b$12$e0btuA4VuNI.M1TSGvfrlujkz2.Zfc.cVF6l3w62IzeT6/Smhti3m	t	controller
 \.
 
 
 --
--- Name: heroes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
+-- Name: heroes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: nono
 --
 
 SELECT pg_catalog.setval('public.heroes_id_seq', 11, true);
 
 
 --
--- Name: players_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
+-- Name: players_id_seq; Type: SEQUENCE SET; Schema: public; Owner: nono
 --
 
 SELECT pg_catalog.setval('public.players_id_seq', 14, true);
 
 
 --
--- Name: alembic_version alembic_version_pkc; Type: CONSTRAINT; Schema: public; Owner: admin
+-- Name: alembic_version alembic_version_pkc; Type: CONSTRAINT; Schema: public; Owner: nono
 --
 
 ALTER TABLE ONLY public.alembic_version
@@ -183,7 +183,7 @@ ALTER TABLE ONLY public.alembic_version
 
 
 --
--- Name: heroes heroes_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
+-- Name: heroes heroes_pkey; Type: CONSTRAINT; Schema: public; Owner: nono
 --
 
 ALTER TABLE ONLY public.heroes
@@ -191,7 +191,7 @@ ALTER TABLE ONLY public.heroes
 
 
 --
--- Name: players players_email_key; Type: CONSTRAINT; Schema: public; Owner: admin
+-- Name: players players_email_key; Type: CONSTRAINT; Schema: public; Owner: nono
 --
 
 ALTER TABLE ONLY public.players
@@ -199,7 +199,7 @@ ALTER TABLE ONLY public.players
 
 
 --
--- Name: players players_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
+-- Name: players players_pkey; Type: CONSTRAINT; Schema: public; Owner: nono
 --
 
 ALTER TABLE ONLY public.players
@@ -207,7 +207,7 @@ ALTER TABLE ONLY public.players
 
 
 --
--- Name: players players_username_key; Type: CONSTRAINT; Schema: public; Owner: admin
+-- Name: players players_username_key; Type: CONSTRAINT; Schema: public; Owner: nono
 --
 
 ALTER TABLE ONLY public.players
@@ -215,21 +215,21 @@ ALTER TABLE ONLY public.players
 
 
 --
--- Name: ix_heroes_id; Type: INDEX; Schema: public; Owner: admin
+-- Name: ix_heroes_id; Type: INDEX; Schema: public; Owner: nono
 --
 
 CREATE INDEX ix_heroes_id ON public.heroes USING btree (id);
 
 
 --
--- Name: ix_players_id; Type: INDEX; Schema: public; Owner: admin
+-- Name: ix_players_id; Type: INDEX; Schema: public; Owner: nono
 --
 
 CREATE INDEX ix_players_id ON public.players USING btree (id);
 
 
 --
--- Name: heroes fk_heroes_owner_id; Type: FK CONSTRAINT; Schema: public; Owner: admin
+-- Name: heroes fk_heroes_owner_id; Type: FK CONSTRAINT; Schema: public; Owner: nono
 --
 
 ALTER TABLE ONLY public.heroes
